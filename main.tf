@@ -14,7 +14,9 @@ module "lambda" {
 
   source_path = "${path.module}/lambda.py"
 
-  policy        = "${data.aws_iam_policy_document.lambda.json}"
+  policy = {
+    json = data.aws_iam_policy_document.lambda.json
+  }
 
   environment = {
     variables = {
